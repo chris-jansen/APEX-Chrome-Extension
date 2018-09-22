@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Extension Options</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="css/options.css">
+
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <section id="tabs">
+        <div class="container">
+            <div class="header-img"><img src="icons/header-img.png"></div>
+            <div class="row">
+                <div class="col-md-12 ">
+                    <nav>
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-js-beautifier-tab" data-toggle="tab" href="#nav-js-beautifier"
+                                role="tab" aria-controls="nav-js-beautifier" aria-selected="true">JS Beautifier</a>
+                            <a class="nav-item nav-link" id="nav-hidden-items-tab" data-toggle="tab" href="#nav-hidden-items"
+                                role="tab" aria-controls="nav-hidden-items" aria-selected="false">Hidden Items</a>
+                            <a class="nav-item nav-link" id="nav-sql-beautifier-tab" data-toggle="tab" href="#nav-sql-beautifier"
+                                role="tab" aria-controls="nav-sql-beautifier" aria-selected="false">SQL Beautifier</a>
+                            <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab"
+                                aria-controls="nav-about" aria-selected="false">About</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active col-md-12" id="nav-js-beautifier" role="tabpanel"
+                            aria-labelledby="nav-js-beautifier-tab">
+                            <div class="row col-md-12">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label for="end_with_newline">end with newline</label>
+                                            <input type="checkbox" name="end_with_newline" id="end_with_newline" value="true"
+                                                class="md-toggle" />
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="e4x"> Support e4x/e4x syntax </label>
+                                            <input type="checkbox" name="e4x" id="e4x" value="false" class="md-toggle" />
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="comma_first">Use comma_first</label>
+                                            <input type="checkbox" name="comma_first" id="comma_first" value="true"
+                                                class="md-toggle" />
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="preserve_newlines">Preserve newlines</label>
+                                            <input type="checkbox" name="preserve_newlines" id="preserve_newlines"
+                                                value="false" class="md-toggle" />
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="space_in_paren">Space in paren</label>
+                                            <input type="checkbox" name="space_in_paren" id="space_in_paren" value="false"
+                                                class="md-toggle">
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="space_in_empty_paren"> Space in empty paren</label>
+                                            <input type="checkbox" name="space_in_empty_paren" id="space_in_empty_paren"
+                                                value="false" class="md-toggle" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="checkbox">
+                                            <label for="keep_array_indentation"> Keep array indentation</label>
+                                            <input type="checkbox" name="keep_array_indentation" id="keep_array_indentation"
+                                                value="true" class="md-toggle" />
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="break_chained_methods">Break chained methods</label>
+                                            <input type="checkbox" name="break_chained_methods" id="break_chained_methods"
+                                                value="false" class="md-toggle" />
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="space_after_anon_function">Space after anon function"</label>
+                                            <input type="checkbox" name="space_after_anon_function" id="space_after_anon_function"
+                                                value="true" class="md-toggle" />
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="unescape_strings">Unescape strings</label>
+                                            <input type="checkbox" name="unescape_strings" id="unescape_strings" value="false"
+                                                class="md-toggle" />
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="jslint_happy">Use JSLint-happy formatting</label>
+                                            <input type="checkbox" name="jslint_happy" id="jslint_happy" value="true"
+                                                class="md-toggle" />
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="unindent_chained_methods">Unindent chained methods</label>
+                                            <input type="checkbox" name="unindent_chained_methods" id="unindent_chained_methods"
+                                                value="true" class="md-toggle" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+
+                                        <div class="selectbox">
+                                            <select id="indent_size" class="form-control">
+                                                <option value="1">Indent with 1 space</option>
+                                                <option value="2">Indent with 2 spaces</option>
+                                                <option value="3">Indent with 3 spaces</option>
+                                                <option value="4">Indent with 4 spaces</option>
+                                                <option value="8">Indent with 8 spaces</option>
+                                            </select>
+                                        </div>
+                                        <div class="selectbox">
+                                            <select id="max_preserve_newlines" class="form-control">
+                                                <option value="-1">Remove all extra newlines</option>
+                                                <option value="1">Allow 1 newline between tokens</option>
+                                                <option value="2">Allow 2 newlines between tokens</option>
+                                                <option value="5">Allow 5 newlines between tokens</option>
+                                                <option value="10">Allow 10 newlines between tokens</option>
+                                                <option value="0">Allow unlimited newlines between tokens</option>
+                                            </select>
+                                        </div>
+                                        <div class="selectbox">
+                                            <select id="wrap_line_length" class="form-control">
+                                                <option value="0">Do not wrap lines</option>
+                                                <option value="40">Wrap lines near 40 characters</option>
+                                                <option value="70">Wrap lines near 70 characters</option>
+                                                <option value="80">Wrap lines near 80 characters</option>
+                                                <option value="110">Wrap lines near 110 characters</option>
+                                                <option value="120">Wrap lines near 120 characters</option>
+                                                <option value="160">Wrap lines near 160 characters</option>
+                                            </select>
+                                        </div>
+                                        <div class="selectbox">
+                                            <select id="brace_style" class="form-control">
+                                                <option value="collapse">Braces with control statement</option>
+                                                <option value="collapse-preserve-inline">Braces inline or with
+                                                    control statement</option>
+                                                <option value="expand">Braces on own line</option>
+                                                <option value="end-expand">End braces on own line</option>
+                                                <option value="none">Attempt to keep braces where they are</option>
+                                            </select>
+                                        </div>
+                                        <div class="selectbox">
+                                            <select id="operator_position" class="form-control">
+                                                <option value="before-newline">Before newline</option>
+                                                <option value="after-newline">After newline</option>
+                                                <option value="preserve-newline">Preserve newline</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" id="test-jsbeautify-settings" class="btn col-md-12 s4s-color margin-bottom">Test
+                                    Beautifier Settings</button>
+
+                                <textarea class="form-control col-md-12" rows="20" cols="50" id="textarea-jsbeautify">$(".tabs > li").on("click", function () {
+                                            $(".tabs > li").removeClass("active");
+                                            $(this).addClass("active");
+                                            clickedTab = $(".tabs .active");
+                                            activeTab.fadeOut(50, function () {
+                                                $(".tab__content > li").removeClass("active");
+                                                var clickedTabIndex = clickedTab.index();
+                                                $(".tab__content > li").eq(clickedTabIndex).addClass("active");
+                                                activeTab = $(".tab__content > .active");
+                                                activeTabHeight = activeTab.outerHeight();
+                                                tabWrapper.stop().delay(10).animate({
+                                                    height: activeTabHeight
+                                                }, 50, function () {
+                                                    activeTab.delay(10).fadeIn(50);
+                                        
+                                                });
+                                            });
+                                        });</textarea>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade center-text" id="nav-hidden-items" role="tabpanel" aria-labelledby="hidden-items-tab">
+                            <h1>Setup Coming Soon.</h1>
+                        </div>
+                        <div class="tab-pane fade center-text" id="nav-sql-beautifier" role="tabpanel" aria-labelledby="nav-sql-beautifier-tab">
+                            <h1>Setup Coming Soon.</h1>
+                        </div>
+                        <div class="tab-pane fade center-text" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <div class="card text-center">
+                                            <div class="title">
+                                                <h3>Twitter</h3>
+                                            </div>
+                                            <div class="center-text">
+                                                <a class="btn col-md-7 action-btn s4s-color margin-bottom" href="https://twitter.com/chris_jansen_"
+                                                    role="button">Follow</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <div class="card text-center">
+                                            <div class="title">
+                                                <h3>LinkedIn</h3>
+                                            </div>
+                                            <div class="center-text">
+                                                <a class="btn col-md-7 action-btn s4s-color margin-bottom" href="https://www.linkedin.com/in/chris-jansen-4b4672ba"
+                                                    role="button">Connect</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <div class="card text-center">
+                                            <div class="title">
+                                                <h3>My Blog</h3>
+                                            </div>
+                                            <div class="center-text">
+                                                <a class="btn col-md-7 action-btn s4s-color margin-bottom" href="http://chrisjansen.me"
+                                                    role="button">Go to Blog</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <div class="card text-center">
+                                            <div class="title">
+                                                <h3>SMART4Solutions</h3>
+                                            </div>
+                                            <div class="center-text">
+                                                <a class="btn col-md-7 action-btn s4s-color margin-bottom" href="https://smart4solutions.nl/apex-extension"
+                                                    role="button">Website</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <div class="center-text">
+        <button type="submit" id="save" class="btn col-md-7 action-btn s4s-color margin-bottom">Save</button>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/options.js"></script>
+    <script src="js/beautify.js"></script>
+</body>
+
+</html>
