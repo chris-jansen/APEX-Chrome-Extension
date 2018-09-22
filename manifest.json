@@ -51,21 +51,22 @@
             "mac":"Command+Shift+F"
          }
       },
-      "hidden-items":{
-         "description":"Show Hidden Page Items Inside Console",
-         "suggested_key":{
-            "default":"Ctrl+Shift+H",
-            "mac":"Command+Shift+H"
-         }
-      }
+      "beautify-js":{
+        "description":"Beautify JS",
+        "suggested_key":{
+           "default":"Ctrl+Shift+B",
+           "mac":"Command+Shift+B"
+        }
+     }
    },
    "content_scripts":[
       {
-         "all_frames":true,
+         "all_frames":false,
          "js":[
             "js/content.js",
             "js/jquery.min.js",
-            "js/sql-formatter.min.js"
+            "js/sql-formatter.min.js",
+            "js/beautify.js"
          ],
          "matches":[
             "http://*/*",

@@ -1,6 +1,28 @@
 var Bookmarks = [];
 addShortcutsInMenu();
 
+chrome.runtime.onInstalled.addListener(function(details){
+    if(details.reason == "install"){
+        chrome.storage.sync.set({'end_with_newline'			: true
+                                ,'e4x'						: true
+                                ,'comma_first'				: true
+                                ,'preserve_newlines'		: true
+                                ,'space_in_paren'			: false
+                                ,'space_in_empty_paren'		: false
+                                ,'keep_array_indentation'	: true
+                                ,'break_chained_methods'	: false
+                                ,'space_after_anon_function': false
+                                ,'unescape_strings'			: true
+                                ,'jslint_happy'				: true
+                                ,'unindent_chained_methods'	: true
+                                ,'indent_size'				: 4
+                                ,'max_preserve_newlines'	: 1
+                                ,'wrap_line_length'			: 0
+                                ,'brace_style'				: "expand"	
+                                ,'operator_position'		: "before-newline"}, function () {});
+    }
+});
+
 chrome.commands.onCommand.addListener(function(command) {
     console.log('Command:', command);
     chrome.tabs.query({
@@ -20,6 +42,9 @@ chrome.commands.onCommand.addListener(function(command) {
                 break;
             case 'format-sql':
                 FormatSQL("", tab);
+                break;
+            case 'beautify-js':
+                BeautifyJS("", tab);
                 break;
         }
     });
@@ -45,6 +70,12 @@ function FormatSQL(info, tab) {
     chrome.tabs.sendMessage(tab.id, {
         "type": "onTransform",
         "transform": "format-sql"
+    });
+}
+function BeautifyJS(info, tab) {
+    chrome.tabs.sendMessage(tab.id, {
+        "type": "onTransform",
+        "transform": "beautify-js"
     });
 }
 /***************************************************************/
@@ -159,6 +190,11 @@ function APEXItemsContextMenu(pMenuItems) {
 			"title": "Format SQL",
 			"contexts": ["selection"],
 			"onclick": FormatSQL
+        });
+        chrome.contextMenus.create({
+			"title": "Beautify JS",
+			"contexts": ["selection"],
+			"onclick": BeautifyJS
 		});
 		addShortcutsInMenu();
         for (var i = 0; i < pMenuItems.length; i++) {
