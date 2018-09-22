@@ -27,19 +27,19 @@ $(document).ready(function () {
 	  }
 
 	function init_jsbeautify_values(){
-		end_with_newline = $('#end_with_newline').val();
-		e4x = $('#e4x').val();
-		comma_first = $('#comma_first').val();
-		preserve_newlines = $('#preserve_newlines').val();
-		space_in_paren = $('#space_in_paren').val();
-		space_in_empty_paren = $('#space_in_empty_paren').val();
+		end_with_newline = toggle_true_false($('#end_with_newline').val());
+		e4x = toggle_true_false($('#e4x').val());
+		comma_first = toggle_true_false($('#comma_first').val());
+		preserve_newlines = toggle_true_false($('#preserve_newlines').val());
+		space_in_paren = toggle_true_false($('#space_in_paren').val());
+		space_in_empty_paren = toggle_true_false($('#space_in_empty_paren').val());
 
-		keep_array_indentation = $('#keep_array_indentation').val();
-		break_chained_methods =  $('#break_chained_methods').val();
-		space_after_anon_function = $('#space_after_anon_function').val();
-		unescape_strings = $('#unescape_strings').val();
-		jslint_happy = $('#jslint_happy').val();
-		unindent_chained_methods = $('#unindent_chained_methods').val();
+		keep_array_indentation = toggle_true_false($('#keep_array_indentation').val());
+		break_chained_methods =  toggle_true_false($('#break_chained_methods').val());
+		space_after_anon_function = toggle_true_false($('#space_after_anon_function').val());
+		unescape_strings = toggle_true_false($('#unescape_strings').val());
+		jslint_happy = toggle_true_false($('#jslint_happy').val());
+		unindent_chained_methods = toggle_true_false($('#unindent_chained_methods').val());
 		// Select List
 		indent_size = $('#indent_size').val();
 		max_preserve_newlines = $('#max_preserve_newlines').val();
@@ -122,20 +122,20 @@ $(document).ready(function () {
 		init_jsbeautify_values();
 		var textarea_jsbeautify = $('#textarea-jsbeautify').val();
 		var jsbeautify_options = js_beautify(textarea_jsbeautify, {	
-			"end_with_newline"			: toggle_true_false(end_with_newline),
-			"e4x"						: toggle_true_false(e4x),
-			"comma_first"				: toggle_true_false(comma_first),
-			"preserve_newlines"			: toggle_true_false(preserve_newlines),
+			"end_with_newline"			: end_with_newline,
+			"e4x"						: e4x,
+			"comma_first"				: comma_first,
+			"preserve_newlines"			: preserve_newlines,
 			
-			"space_in_paren"			: toggle_true_false(space_in_paren),
-			"space_in_empty_paren"		: toggle_true_false(space_in_empty_paren),
+			"space_in_paren"			: space_in_paren,
+			"space_in_empty_paren"		: space_in_empty_paren,
 
-			"keep_array_indentation"	: toggle_true_false(keep_array_indentation),
-			"break_chained_methods"		: toggle_true_false(break_chained_methods),
-			"space_after_anon_function"	: toggle_true_false(space_after_anon_function),
-			"unescape_strings"			: toggle_true_false(unescape_strings),
-			"jslint_happy"				: toggle_true_false(jslint_happy),
-			"unindent_chained_methods"	: toggle_true_false(unindent_chained_methods),
+			"keep_array_indentation"	: keep_array_indentation,
+			"break_chained_methods"		: break_chained_methods,
+			"space_after_anon_function"	: space_after_anon_function,
+			"unescape_strings"			: unescape_strings,
+			"jslint_happy"				: jslint_happy,
+			"unindent_chained_methods"	: unindent_chained_methods,
 
 			"indent_size"				: indent_size,
 			"max_preserve_newlines"		: max_preserve_newlines,
