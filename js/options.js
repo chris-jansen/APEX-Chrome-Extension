@@ -1,5 +1,6 @@
 $(document).ready(function () {
-	var BeautifyArrayItems = [];
+	var BeautifyItemsArray = [];
+	var ContextMenuArray = [];
 
 	// Since the js_beautify options need true/false and not the string "true"
 	function toggle_true_false(toggle_item) {
@@ -9,49 +10,71 @@ $(document).ready(function () {
 			return false
 		}
 	}
+	function set_contextmenu_values() {
+		// Select List col-3
+		ContextMenuArray['apex_colon_item'] = $('#apex_colon_item').val();
+		ContextMenuArray['apex_ampersand_item'] = $('#apex_ampersand_item').val();
+		ContextMenuArray['transform_uppercase'] = $('#transform_uppercase').val();
+		ContextMenuArray['transform_lowercase'] = $('#transform_lowercase').val();
+
+		chrome.storage.sync.set({
+			'apex_colon_item': ContextMenuArray['apex_colon_item'],
+			'apex_ampersand_item': ContextMenuArray['apex_ampersand_item'],
+			'transform_uppercase': ContextMenuArray['transform_uppercase'],
+			'transform_lowercase': ContextMenuArray['transform_lowercase']
+		}, function () {});
+	}
+
+	chrome.storage.sync.get(['apex_colon_item', 'apex_ampersand_item', 'transform_uppercase', 'transform_lowercase'], function (ContextMenu) {
+		$('#apex_colon_item').val(ContextMenu.apex_colon_item);
+		$('#apex_ampersand_item').val(ContextMenu.apex_ampersand_item);
+		$('#transform_uppercase').val(ContextMenu.transform_uppercase);
+		$('#transform_lowercase').val(ContextMenu.transform_lowercase);
+	});
 
 	function set_jsbeautify_values() {
 		//checkboxes col-1
-		BeautifyArrayItems['end_with_newline'] = toggle_true_false($('#end_with_newline').val());
-		BeautifyArrayItems['e4x'] = toggle_true_false($('#e4x').val());
-		BeautifyArrayItems['comma_first'] = toggle_true_false($('#comma_first').val());
-		BeautifyArrayItems['preserve_newlines'] = toggle_true_false($('#preserve_newlines').val());
-		BeautifyArrayItems['space_in_paren'] = toggle_true_false($('#space_in_paren').val());
-		BeautifyArrayItems['space_in_empty_paren'] = toggle_true_false($('#space_in_empty_paren').val());
+		BeautifyItemsArray['end_with_newline'] = toggle_true_false($('#end_with_newline').val());
+		BeautifyItemsArray['e4x'] = toggle_true_false($('#e4x').val());
+		BeautifyItemsArray['comma_first'] = toggle_true_false($('#comma_first').val());
+		BeautifyItemsArray['preserve_newlines'] = toggle_true_false($('#preserve_newlines').val());
+		BeautifyItemsArray['space_in_paren'] = toggle_true_false($('#space_in_paren').val());
+		BeautifyItemsArray['space_in_empty_paren'] = toggle_true_false($('#space_in_empty_paren').val());
 		//checkboxes col-2
-		BeautifyArrayItems['keep_array_indentation'] = toggle_true_false($('#keep_array_indentation').val());
-		BeautifyArrayItems['break_chained_methods'] = toggle_true_false($('#break_chained_methods').val());
-		BeautifyArrayItems['space_after_anon_function'] = toggle_true_false($('#space_after_anon_function').val());
-		BeautifyArrayItems['unescape_strings'] = toggle_true_false($('#unescape_strings').val());
-		BeautifyArrayItems['jslint_happy'] = toggle_true_false($('#jslint_happy').val());
-		BeautifyArrayItems['unindent_chained_methods'] = toggle_true_false($('#unindent_chained_methods').val());
+		BeautifyItemsArray['keep_array_indentation'] = toggle_true_false($('#keep_array_indentation').val());
+		BeautifyItemsArray['break_chained_methods'] = toggle_true_false($('#break_chained_methods').val());
+		BeautifyItemsArray['space_after_anon_function'] = toggle_true_false($('#space_after_anon_function').val());
+		BeautifyItemsArray['unescape_strings'] = toggle_true_false($('#unescape_strings').val());
+		BeautifyItemsArray['jslint_happy'] = toggle_true_false($('#jslint_happy').val());
+		BeautifyItemsArray['unindent_chained_methods'] = toggle_true_false($('#unindent_chained_methods').val());
 		// Select List col-3
-		BeautifyArrayItems['indent_size'] = $('#indent_size').val();
-		BeautifyArrayItems['max_preserve_newlines'] = $('#max_preserve_newlines').val();
-		BeautifyArrayItems['wrap_line_length'] = $('#wrap_line_length').val();
-		BeautifyArrayItems['brace_style'] = $('#brace_style').val();
-		BeautifyArrayItems['operator_position'] = $('#operator_position').val();
+		BeautifyItemsArray['indent_size'] = $('#indent_size').val();
+		BeautifyItemsArray['max_preserve_newlines'] = $('#max_preserve_newlines').val();
+		BeautifyItemsArray['wrap_line_length'] = $('#wrap_line_length').val();
+		BeautifyItemsArray['brace_style'] = $('#brace_style').val();
+		BeautifyItemsArray['operator_position'] = $('#operator_position').val();
 
 		chrome.storage.sync.set({
-			'end_with_newline': BeautifyArrayItems['end_with_newline'],
-			'e4x': BeautifyArrayItems['e4x'],
-			'comma_first': BeautifyArrayItems['comma_first'],
-			'preserve_newlines': BeautifyArrayItems['preserve_newlines'],
-			'space_in_paren': BeautifyArrayItems['space_in_paren'],
-			'space_in_empty_paren': BeautifyArrayItems['space_in_empty_paren'],
-			'keep_array_indentation': BeautifyArrayItems['keep_array_indentation'],
-			'break_chained_methods': BeautifyArrayItems['break_chained_methods'],
-			'space_after_anon_function': BeautifyArrayItems['space_after_anon_function'],
-			'unescape_strings': BeautifyArrayItems['unescape_strings'],
-			'jslint_happy': BeautifyArrayItems['jslint_happy'],
-			'unindent_chained_methods': BeautifyArrayItems['unindent_chained_methods'],
-			'indent_size': BeautifyArrayItems['indent_size'],
-			'max_preserve_newlines': BeautifyArrayItems['max_preserve_newlines'],
-			'wrap_line_length': BeautifyArrayItems['wrap_line_length'],
-			'brace_style': BeautifyArrayItems['brace_style'],
-			'operator_position': BeautifyArrayItems['operator_position']
+			'end_with_newline': BeautifyItemsArray['end_with_newline'],
+			'e4x': BeautifyItemsArray['e4x'],
+			'comma_first': BeautifyItemsArray['comma_first'],
+			'preserve_newlines': BeautifyItemsArray['preserve_newlines'],
+			'space_in_paren': BeautifyItemsArray['space_in_paren'],
+			'space_in_empty_paren': BeautifyItemsArray['space_in_empty_paren'],
+			'keep_array_indentation': BeautifyItemsArray['keep_array_indentation'],
+			'break_chained_methods': BeautifyItemsArray['break_chained_methods'],
+			'space_after_anon_function': BeautifyItemsArray['space_after_anon_function'],
+			'unescape_strings': BeautifyItemsArray['unescape_strings'],
+			'jslint_happy': BeautifyItemsArray['jslint_happy'],
+			'unindent_chained_methods': BeautifyItemsArray['unindent_chained_methods'],
+			'indent_size': BeautifyItemsArray['indent_size'],
+			'max_preserve_newlines': BeautifyItemsArray['max_preserve_newlines'],
+			'wrap_line_length': BeautifyItemsArray['wrap_line_length'],
+			'brace_style': BeautifyItemsArray['brace_style'],
+			'operator_position': BeautifyItemsArray['operator_position']
 		}, function () {});
 	}
+
 	chrome.storage.sync.get(['end_with_newline', 'e4x', 'comma_first', 'preserve_newlines', 'space_in_paren', 'space_in_empty_paren', 'keep_array_indentation', 'break_chained_methods', 'space_after_anon_function', 'unescape_strings', 'jslint_happy', 'unindent_chained_methods', 'indent_size', 'max_preserve_newlines', 'wrap_line_length', 'brace_style', 'operator_position'], function (BeautifierJS) {
 		$('#end_with_newline').val(BeautifierJS.end_with_newline);
 		$('#e4x').val(BeautifierJS.e4x);
@@ -77,6 +100,7 @@ $(document).ready(function () {
 
 	$("#save").click(function () {
 		set_jsbeautify_values();
+		set_contextmenu_values();
 		showtoast('JS Beautifier Values saved!');
 	});
 
@@ -84,26 +108,26 @@ $(document).ready(function () {
 		set_jsbeautify_values();
 		var textarea_jsbeautify = $('#textarea-jsbeautify').val();
 		var jsbeautify_options = js_beautify(textarea_jsbeautify, {
-			"end_with_newline": BeautifyArrayItems['end_with_newline'],
-			"e4x": BeautifyArrayItems['e4x'],
-			"comma_first": BeautifyArrayItems['comma_first'],
-			"preserve_newlines": BeautifyArrayItems['preserve_newlines'],
+			"end_with_newline": BeautifyItemsArray['end_with_newline'],
+			"e4x": BeautifyItemsArray['e4x'],
+			"comma_first": BeautifyItemsArray['comma_first'],
+			"preserve_newlines": BeautifyItemsArray['preserve_newlines'],
 
-			"space_in_paren": BeautifyArrayItems['space_in_paren'],
-			"space_in_empty_paren": BeautifyArrayItems['space_in_empty_paren'],
+			"space_in_paren": BeautifyItemsArray['space_in_paren'],
+			"space_in_empty_paren": BeautifyItemsArray['space_in_empty_paren'],
 
-			"keep_array_indentation": BeautifyArrayItems['keep_array_indentation'],
-			"break_chained_methods": BeautifyArrayItems['break_chained_methods'],
-			"space_after_anon_function": BeautifyArrayItems['space_after_anon_function'],
-			"unescape_strings": BeautifyArrayItems['unescape_strings'],
-			"jslint_happy": BeautifyArrayItems['jslint_happy'],
-			"unindent_chained_methods": BeautifyArrayItems['unindent_chained_methods'],
+			"keep_array_indentation": BeautifyItemsArray['keep_array_indentation'],
+			"break_chained_methods": BeautifyItemsArray['break_chained_methods'],
+			"space_after_anon_function": BeautifyItemsArray['space_after_anon_function'],
+			"unescape_strings": BeautifyItemsArray['unescape_strings'],
+			"jslint_happy": BeautifyItemsArray['jslint_happy'],
+			"unindent_chained_methods": BeautifyItemsArray['unindent_chained_methods'],
 
-			"indent_size": BeautifyArrayItems['indent_size'],
-			"max_preserve_newlines": BeautifyArrayItems['max_preserve_newlines'],
-			"wrap_line_length": BeautifyArrayItems['wrap_line_length'],
-			"brace_style": BeautifyArrayItems['brace_style'],
-			"operator_position": BeautifyArrayItems['operator_position'],
+			"indent_size": BeautifyItemsArray['indent_size'],
+			"max_preserve_newlines": BeautifyItemsArray['max_preserve_newlines'],
+			"wrap_line_length": BeautifyItemsArray['wrap_line_length'],
+			"brace_style": BeautifyItemsArray['brace_style'],
+			"operator_position": BeautifyItemsArray['operator_position'],
 
 			"indent_char": " ",
 			"indent_level": 0,

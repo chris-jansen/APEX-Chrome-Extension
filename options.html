@@ -23,8 +23,8 @@
                         <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                             <a class="nav-item nav-link active" id="nav-js-beautifier-tab" data-toggle="tab" href="#nav-js-beautifier"
                                 role="tab" aria-controls="nav-js-beautifier" aria-selected="true">JS Beautifier</a>
-                            <a class="nav-item nav-link" id="nav-hidden-items-tab" data-toggle="tab" href="#nav-hidden-items"
-                                role="tab" aria-controls="nav-hidden-items" aria-selected="false">Hidden Items</a>
+                            <a class="nav-item nav-link" id="nav-contextmenu-tab" data-toggle="tab" href="#nav-contextmenu"
+                                role="tab" aria-controls="nav-contextmenu" aria-selected="false">Context Menu</a>
                             <a class="nav-item nav-link" id="nav-sql-beautifier-tab" data-toggle="tab" href="#nav-sql-beautifier"
                                 role="tab" aria-controls="nav-sql-beautifier" aria-selected="false">SQL Beautifier</a>
                             <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab"
@@ -177,8 +177,36 @@
                                         });</textarea>
                             </div>
                         </div>
-                        <div class="tab-pane fade center-text" id="nav-hidden-items" role="tabpanel" aria-labelledby="hidden-items-tab">
-                            <h1>Setup Coming Soon.</h1>
+                        <div class="tab-pane fade" id="nav-contextmenu" role="tabpanel" aria-labelledby="contextmenu-tab">
+                                <h3></h3>
+                                <div class="list-group col-md-12">
+                                        <div  class="list-group-item list-group-item-action list-group-item-light flex-column align-items-start active">
+                                          <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">Context Menu</h5>
+                                          </div>
+                                          <p class="mb-1">With these settings you can show and hide items from the right click context menu.</p>
+                                        </div>
+                                    </div>
+                            <div class="col-md-4">
+                                <div class="form-group">                                        
+                                    <div class="checkbox">
+                                        <label for="apex_colon_item">APEX : ":Item"</label>
+                                        <input type="checkbox" name="apex_colon_item" id="apex_colon_item" value="true" class="md-toggle" />
+                                    </div>
+                                    <div class="checkbox">
+                                        <label for="apex_ampersand_item">APEX : "&Item."</label>
+                                        <input type="checkbox" name="apex_ampersand_item" id="apex_ampersand_item"value="true" class="md-toggle" />
+                                    </div>
+                                    <div class="checkbox">
+                                        <label for="transform_uppercase">Transform : UPPERCASE</label>
+                                        <input type="checkbox" name="transform_uppercase" id="transform_uppercase" value="true" class="md-toggle" />
+                                    </div>
+                                    <div class="checkbox">
+                                        <label for="transform_lowercase">Transform : lowercase</label>
+                                        <input type="checkbox" name="transform_lowercase" id="transform_lowercase" value="true" class="md-toggle" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade center-text" id="nav-sql-beautifier" role="tabpanel" aria-labelledby="nav-sql-beautifier-tab">
                             <h1>Setup Coming Soon.</h1>

@@ -19,10 +19,14 @@ chrome.runtime.onInstalled.addListener(function(details){
                                 ,'max_preserve_newlines'	: 1
                                 ,'wrap_line_length'			: 0
                                 ,'brace_style'				: "expand"	
-                                ,'operator_position'		: "before-newline"}, function () {});
+                                ,'operator_position'		: "before-newline"
+                                
+                                ,'apex_colon_item'          : "true"
+                                ,'apex_ampersand_item'      : "true"
+                                ,'transform_uppercase'      : "true"
+                                ,'transform_lowercase'      : "true"}, function () {});
     }
 });
-
 chrome.commands.onCommand.addListener(function(command) {
     console.log('Command:', command);
     chrome.tabs.query({
@@ -170,17 +174,26 @@ function arraysEqual(arr1, arr2) {
 }
 function APEXItemsContextMenu(pMenuItems) {
     if (APEXItemEntries != JSON.stringify(pMenuItems)) {
-	    chrome.contextMenus.removeAll();
-		chrome.contextMenus.create({
-		"title": "Uppercase",
-		"contexts": ["selection"],
-		"onclick": toUppercase
-		});
-		chrome.contextMenus.create({
-			"title": "Lowercase",
-			"contexts": ["selection"],
-			"onclick": toLowercase
-		});
+        chrome.contextMenus.removeAll();
+
+        chrome.storage.sync.get(['transform_uppercase', 'transform_lowercase'], function (ContextMenu) {
+            if(ContextMenu.transform_uppercase == "true"){
+                chrome.contextMenus.create({
+                "title": "Uppercase",
+                "contexts": ["selection"],
+                "onclick": toUppercase
+                });
+            }   
+            if(ContextMenu.transform_lowercase == "true"){
+                chrome.contextMenus.create({
+                    "title": "Lowercase",
+                    "contexts": ["selection"],
+                    "onclick": toLowercase
+                });
+            }
+        });
+
+
 		chrome.contextMenus.create({
 			"title": "Show All APEX Hidden Items",
 			"contexts": ["page"],
@@ -196,7 +209,8 @@ function APEXItemsContextMenu(pMenuItems) {
 			"contexts": ["selection"],
 			"onclick": BeautifyJS
 		});
-		addShortcutsInMenu();
+        addShortcutsInMenu();
+        chrome.storage.sync.get(['apex_colon_item', 'apex_ampersand_item'], function (ContextMenu) { 
         for (var i = 0; i < pMenuItems.length; i++) {
             for (var x = 0; x < pMenuItems[i].length; x++) {
                 if (x == 0) {
@@ -204,16 +218,18 @@ function APEXItemsContextMenu(pMenuItems) {
                         chrome.contextMenus.create({
                             title: pMenuItems[i][x],
                             id: "0",
-                            enabled: false,
                             contexts: ['editable']
                         });
+
                     } else {
+
                         chrome.contextMenus.create({
                             type: "separator",
                             title: pMenuItems[i][x],
                             id: pMenuItems[i][x] + "_$$$1$" + 99 + "$" + x + "$",
                             contexts: ['editable']
                         });
+
                         chrome.contextMenus.create({
                             title: pMenuItems[i][x],
                             id: pMenuItems[i][x] + "_$$$2$" + i + "$" + x + "$",
@@ -225,17 +241,64 @@ function APEXItemsContextMenu(pMenuItems) {
                         });
                     }
                 } else {
-                    chrome.contextMenus.create({
-                        title: pMenuItems[i][x],
-                        id: pMenuItems[i][x] + "_$$$4$" + i + "$" + x + "$",
-                        contexts: ['editable'],
-                        onclick: function(obj) {
-                            insertMenuItemText(obj.menuItemId)
+
+                    if (i == 0) {
+                        chrome.contextMenus.create({
+                            title: pMenuItems[i][x],
+                            id: pMenuItems[i][x] + "_$$$3$" + i + "$" + x + "$",
+                            parentId: "0",
+                            contexts: ['editable'],
+                            onclick: function(obj) {
+                                insertMenuItemText(obj.menuItemId)
+                            }
+                        });
+                    } else {
+                        chrome.contextMenus.create({
+                            title: pMenuItems[i][x],
+                            id: pMenuItems[i][x] + "_$$$3$" + i + "$" + x + "$",
+                            contexts: ['editable'],
+                            onclick: function(obj) {
+                                insertMenuItemText(obj.menuItemId)
+                            }
+                        });
+                    }
+                        if(ContextMenu.apex_colon_item == "true" || ContextMenu.apex_ampersand_item == "true"){                   
+                            chrome.contextMenus.create({
+                                title: pMenuItems[i][x],
+                                id: pMenuItems[i][x] + "_$$$4$" + i + "$" + x + "$",
+                                parentId: pMenuItems[i][x] + "_$$$3$" + i + "$" + x + "$",
+                                contexts: ['editable'],
+                                onclick: function(obj) {
+                                    insertMenuItemText(obj.menuItemId)
+                                }
+                            });
                         }
-                    });
+                        if(ContextMenu.apex_colon_item == "true"){
+                            chrome.contextMenus.create({
+                                title: ":" + pMenuItems[i][x],
+                                id: pMenuItems[i][x] + "_$$$5$" + i + "$" + x + "$",
+                                parentId: pMenuItems[i][x] + "_$$$3$" + i + "$" + x + "$",
+                                contexts: ['editable'],
+                                onclick: function(obj) {
+                                    insertMenuItemText(":" + obj.menuItemId)
+                                }
+                            });
+                        }
+                        if(ContextMenu.apex_ampersand_item == "true"){
+                            chrome.contextMenus.create({
+                                title: "&&" + pMenuItems[i][x] + ".",
+                                id: pMenuItems[i][x] + "_$$$6$" + i + "$" + x + "$",
+                                parentId: pMenuItems[i][x] + "_$$$3$" + i + "$" + x + "$",
+                                contexts: ['editable'],
+                                onclick: function(obj) {
+                                    insertMenuItemText("&" + obj.menuItemId + ".")
+                                }
+                            });
+                        }
                 }
             }
         }
+    });
     }
     APEXItemEntries = JSON.stringify(pMenuItems);
 }
@@ -260,6 +323,7 @@ var checkContectMenuExist = setInterval(function() {
         }
     });
 }, 500);
+
 /***************************************************************/
 /************ -----==== End APEX Items ====----- ***************/
 /***************************************************************/
