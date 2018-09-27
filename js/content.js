@@ -155,7 +155,7 @@ function insertAtCursor(myField, myValue) {
 }
 
 function sendAPEXItemsContextMenuArray() {
-    var APEXBinds = ["APEX Binds", "APEX$ROW_NUM", "APEX$ROW_SELECTOR", "APEX$ROW_STATUS", "APP_ID", "APP_ALIAS", "APP_AJAX_X01", "APP_AJAX_X02", "APP_AJAX_X03", "APP_AJAX_X04", "APP_AJAX_X05", "APP_AJAX_X06", "APP_AJAX_X07", "APP_AJAX_X08", "APP_AJAX_X09", "APP_AJAX_X10", "APP_BUILDER_SESSION", "APP_DATE_TIME_FORMAT", "APP_IMAGES", "APP_NLS_DATE_FORMAT", "APP_NLS_TIMESTAMP_FORMAT", "APP_NLS_TIMESTAMP_TZ_FORMAT", "APP_PAGE_ALIAS", "APP_PAGE_ID", "APP_REQUEST_DATA_HASH", "APP_SESSION", "APP_SESSION_VISIBLE", "APP_TITLE", "APP_UNIQUE_PAGE_ID", "APP_USER", "AUTHENTICATED_URL_PREFIX", "BROWSER_LANGUAGE", "CURRENT_PARENT_TAB_TEXT", "DEBUG", "HOME_LINK", "IMAGE_PREFIX", "JET_BASE_DIRECTORY", "JET_CSS_DIRECTORY", "JET_JS_DIRECTORY", "LOGIN_URL", "LOGOUT_URL", "APP_TEXT$Message_Name", "APP_TEXT$Message_Name$Lang", "PRINTER_FRIENDLY", "PROXY_SERVER", "PUBLIC_URL_PREFIX", "REQUEST", "SCHEMA OWNER", "SQLERRM", "SYSDATE_YYYYMMDD", "THEME_DB_IMAGES", "THEME_IMAGES", "WORKSPACE_IMAGES", "WORKSPACE_ID"];
+    var APEXBinds = ["^APEXBINDS^", "APEX$ROW_NUM", "APEX$ROW_SELECTOR", "APEX$ROW_STATUS", "APP_ID", "APP_ALIAS", "APP_AJAX_X01", "APP_AJAX_X02", "APP_AJAX_X03", "APP_AJAX_X04", "APP_AJAX_X05", "APP_AJAX_X06", "APP_AJAX_X07", "APP_AJAX_X08", "APP_AJAX_X09", "APP_AJAX_X10", "APP_BUILDER_SESSION", "APP_DATE_TIME_FORMAT", "APP_IMAGES", "APP_NLS_DATE_FORMAT", "APP_NLS_TIMESTAMP_FORMAT", "APP_NLS_TIMESTAMP_TZ_FORMAT", "APP_PAGE_ALIAS", "APP_PAGE_ID", "APP_REQUEST_DATA_HASH", "APP_SESSION", "APP_SESSION_VISIBLE", "APP_TITLE", "APP_UNIQUE_PAGE_ID", "APP_USER", "AUTHENTICATED_URL_PREFIX", "BROWSER_LANGUAGE", "CURRENT_PARENT_TAB_TEXT", "DEBUG", "HOME_LINK", "IMAGE_PREFIX", "JET_BASE_DIRECTORY", "JET_CSS_DIRECTORY", "JET_JS_DIRECTORY", "LOGIN_URL", "LOGOUT_URL", "APP_TEXT$Message_Name", "APP_TEXT$Message_Name$Lang", "PRINTER_FRIENDLY", "PROXY_SERVER", "PUBLIC_URL_PREFIX", "REQUEST", "SCHEMA OWNER", "SQLERRM", "SYSDATE_YYYYMMDD", "THEME_DB_IMAGES", "THEME_IMAGES", "WORKSPACE_IMAGES", "WORKSPACE_ID"];
     
     var RegionLabel = false;
     var Itemslist = [];
@@ -168,11 +168,31 @@ function sendAPEXItemsContextMenuArray() {
         var regionLabel = $(this).siblings('span[role="treeitem"]').text();
         var regionObj = $(this).parent().parent();
         var itemSel = $(this).parent().siblings().find('[class^="a-Icon icon-item"]').siblings('span[role="treeitem"]')
+        //APEX Items
+        var isAPEXItem = true
         itemSel.each(function () {
+            if(isAPEXItem === true){
+                APEXItems.push("^APEXITEM^");
+                isAPEXItem = false;
+            }
             if ($(this).parentsUntil(regionObj).length <= 5) {
                 APEXItems.push($(this).text().replace(" [Global Page]", ""));
             }
         });
+
+        var itemSel = $(this).parent().siblings().find('[class^="a-Icon icon-tree-report-column"]').siblings('span[role="treeitem"]')
+        //APEX Report Items
+        var isAPEXReport = true
+        itemSel.each(function () {
+            if(isAPEXReport === true){
+                APEXItems.push("^APEXREPORT^");
+                isAPEXReport = false;
+            }
+            if ($(this).parentsUntil(regionObj).length <= 5) {
+                APEXItems.push($(this).text());
+            }
+        }); 
+
         if (APEXItems.length != 0) {
             APEXItems.splice(0, 0, regionLabel);
             Itemslist.push(APEXItems);
