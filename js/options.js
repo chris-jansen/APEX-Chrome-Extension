@@ -101,7 +101,7 @@ $(document).ready(function () {
 	$("#save").click(function () {
 		set_jsbeautify_values();
 		set_contextmenu_values();
-		showtoast('JS Beautifier Values saved!');
+		showtoast('Settings saved!');
 	});
 
 	$("#test-jsbeautify-settings").click(function () {

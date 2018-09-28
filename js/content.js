@@ -80,7 +80,10 @@ function replaceText(transform, text) {
             return ret;
             break;
         case "format-sql":
-            var ret = window.sqlFormatter.format(text);
+            var ret = window.sqlFormatter.format(text, {
+                language: "pl/sql",
+                indent: "    "
+            });
             return ret;
             break;
         case "beautify-js":

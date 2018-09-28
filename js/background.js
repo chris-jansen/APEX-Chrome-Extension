@@ -203,7 +203,7 @@ function APEXItemsContextMenu(pMenuItems) {
                 });
             }
             chrome.contextMenus.create({
-                "title": "Show All APEX Hidden Items",
+                "title": "Hidden Items",
                 "contexts": ["page"],
                 "onclick": ShowAllAPEXHiddenItems
             });
