@@ -1,4 +1,4 @@
-var Bookmarks = [];
+var Obj = [];
 addShortcutsInMenu();
 
 chrome.runtime.onInstalled.addListener(function (details) {
@@ -119,35 +119,44 @@ function addShortcuts() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            Bookmarks = JSON.parse(this.responseText);
-            addShortcutsObj(Bookmarks);
+            Obj = JSON.parse(this.responseText);
+            addShortcutsObj(Obj);
         }
     };
-    if (Object.keys(Bookmarks).length == 0) {
+    if (Object.keys(Obj).length == 0) {
         xmlhttp.open("GET", "js/Links.json", true);
         xmlhttp.send();
     } else {
-        addShortcutsObj(Bookmarks);
+        addShortcutsObj(Obj);
     }
 }
 
-function addShortcutsObj(Bookmarks) {
-    Object.keys(Bookmarks).forEach(function (pShortCutName) {
-        var urlLink = Bookmarks[pShortCutName]["url"];
-        var entryType = Bookmarks[pShortCutName]["type"];
-
+function addShortcutsObj(Obj) {
+    Obj.bookmarks.forEach(function(key) {
         chrome.contextMenus.create({
             parentId: "1000",
-            title: pShortCutName,
-            type: entryType,
+            title: key.name,
+            type: key.type,
             contexts: ["browser_action"],
             onclick: function (message) {
                 chrome.tabs.create({
-                    url: urlLink
+                    url: key.url
                 });
             }
         });
-    });
+      });
+
+      Obj.css_helpers.forEach(function(key) {
+        chrome.contextMenus.create({
+            title: key.name,
+            id: "101",
+            parentId: key.parentId,
+            contexts: ['editable'],
+            onclick: function (obj) {
+                insertMenuItemText(key.name)
+            }
+        });
+      });
 
 }
 /***************************************************************/
@@ -216,6 +225,11 @@ function APEXItemsContextMenu(pMenuItems) {
                 "title": "Beautify JS",
                 "contexts": ["selection"],
                 "onclick": BeautifyJS
+            });
+            chrome.contextMenus.create({
+                "title": "CSS Helpers",
+                "id": "CSS_HELPER_1000",
+                "contexts": ['editable']
             });
             addShortcutsInMenu();
             for (var itemsArray = 0; itemsArray < pMenuItems.length; itemsArray++) {
