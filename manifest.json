@@ -62,17 +62,25 @@
    "content_scripts":[
       {
          "all_frames":false,
-         "js":[
-            "js/content.js",
+         "js":[          
             "js/jquery.min.js",
-            "js/sql-formatter.min.js",
-            "js/beautify.js"
+            "js/beautify.js",
+            "js/content.js",
+            "js/sql-formatter.min.js"
          ],
          "matches":[
-            "http://*/*",
-            "https://*/*"
+          "*://*/*f?p=*",
+          "*://*/*wwv_flow.accept*"
          ],
          "run_at":"document_end"
       }
+   ],
+   "web_accessible_resources": [
+    "js/beautify.js",
+    "js/beautify-css.js",
+    "js/beautify-html.js",
+    "js/jshint.js",
+    "js/csslint.js",
+    "js/Jq-content.js"
    ]
 }

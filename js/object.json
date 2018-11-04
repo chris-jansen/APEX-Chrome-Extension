@@ -1,0 +1,292 @@
+{
+  "bookmarks": [{
+    "name": "apex.oracle.com",
+    "url": "https://apex.oracle.com"
+  }, {
+    "name": "apexea.oracle.com",
+    "url": "https://apexea.oracle.com"
+  }, {
+    "name": "apex.world",
+    "url": "http://apex.world"
+  }, {
+    "type": "separator"
+  }, {
+    "name": "Universal Theme",
+    "url": "https://apex.oracle.com/ut"
+  }, {
+    "name": "Font APEX",
+    "url": "https://apex.oracle.com/fontapex"
+  }, {
+    "name": "Quick SQL",
+    "url": "https://apex.oracle.com/quicksql"
+  }, {
+    "name": "Low Code",
+    "url": "https://apex.oracle.com/lowcode"
+  }, {
+    "name": "Architecture",
+    "url": "https://apex.oracle.com/architecture"
+  }, {
+    "type":"separator"
+  }, {
+    "name": "APEX 18.1 Docs",
+    "url": "https://apex.oracle.com/doc181"
+  }, {
+    "name": "APEX 18.1 JS Reference",
+    "url": "https://docs.oracle.com/database/apex-18.1/AEAPI"
+  }, {
+    "name": "APEX 5.1 Docs",
+    "url": "https://apex.oracle.com/doc51"
+  }, {
+    "name": "APEX 5.1 JS Reference",
+    "url": "https://docs.oracle.com/database/apex-5.1/AEAPI"
+  }],
+  "css_helpers": [{
+    "name": "Float",
+    "id": "CSS_FLOAT_1000",
+    "parentId": "CSS_HELPER_1000"
+  },{
+    "name": "Align",
+    "id": "CSS_ALIGN_1000",
+    "parentId": "CSS_HELPER_1000"
+  },{
+    "name": "Margin",
+    "id": "CSS_MARGIN_1000",
+    "parentId": "CSS_HELPER_1000"
+  },{
+    "name": "Padding",
+    "id": "CSS_PADDING_1000",
+    "parentId": "CSS_HELPER_1000"
+  },{
+    "name": "Width",
+    "id": "CSS_WIDTH_1000",
+    "parentId": "CSS_HELPER_1000"
+  },{
+    "name": "Height",
+    "id": "CSS_HEIGHT_1000",
+    "parentId": "CSS_HELPER_1000"
+  },{
+    "name": "Text Align",
+    "id": "CSS_TEXT_ALIGN_1000",
+    "parentId": "CSS_HELPER_1000"
+  },{
+    "name": "Text Transform",
+    "id": "CSS_TEXT_TRANSFORM_1000",
+    "parentId": "CSS_HELPER_1000"
+  },{
+    "name": "Text Style",
+    "id": "CSS_TEXT_STYLE_1000",
+    "parentId": "CSS_HELPER_1000"
+  },{
+    "name": "u-pullLeft | Float to left",
+    "id": "CSS_pullLeft_1000",
+    "parentId": "CSS_FLOAT_1000",
+    "class" : "u-pullLeft"
+  }, {
+    "name": "u-pullRight | Float to right",
+    "id": "CSS_pullRight_1000",
+    "parentId": "CSS_FLOAT_1000",
+    "class" : "u-pullRight"
+  }, {
+    "name": "u-alignTop | Vertically align to the top",
+    "id": "CSS_alignTop_1000",
+    "parentId": "CSS_ALIGN_1000",
+    "class" : "u-alignTop"
+  }, {
+    "name": "u-alignMiddle | Vertically align to the middle",
+    "id": "CSS_alignMiddle_1000",
+    "parentId": "CSS_ALIGN_1000",
+    "class" : "u-alignMiddle"
+  }, {
+    "name": "u-alignBaseline | Vertically align to the text baseline",
+    "id": "CSS_alignBaseline_1000",
+    "parentId": "CSS_ALIGN_1000",
+    "class" : "u-alignBaseline"
+  }, {
+    "name": "u-alignBottom | Vertically align to the bottom",
+    "id": "CSS_alignBottom_1000",
+    "parentId": "CSS_ALIGN_1000",
+    "class" : "u-alignBaseline"
+  }, {
+    "name": "margin-[direction]-spacing | [direction]: top,right,bottom,left",
+    "enabled": false,
+    "id": "CSS_margin_direction_1000",
+    "parentId": "CSS_MARGIN_1000"
+  },{
+    "name": "margin-direction-[spacing] | [spacing]: none,sm,md,lg",
+    "enabled": false,
+    "id": "CSS_margin_spacing_1000",
+    "parentId": "CSS_MARGIN_1000"
+  }, {
+    "name": "margin-none | No margin",
+    "id": "CSS_margin-none_1000",
+    "parentId": "CSS_MARGIN_1000",
+    "class" : "margin-none"
+  }, {
+    "name": "margin-sm | 8px margin",
+    "id": "CSS_margin-sm_1000",
+    "parentId": "CSS_MARGIN_1000",
+    "class" : "margin-sm"
+  }, {
+    "name": "margin-md | 16px margin",
+    "id": "CSS_margin-md_1000",
+    "parentId": "CSS_MARGIN_1000",
+    "class" : "margin-md"
+  }, {
+    "name": "margin-lg | 32px margin",
+    "id": "CSS_margin-lg_1000",
+    "parentId": "CSS_MARGIN_1000",
+    "class" : "margin-lg"
+  }, {
+    "name": "margin-auto | aligns content into the center",
+    "id": "CSS_margin-auto_1000",
+    "parentId": "CSS_MARGIN_1000",
+    "class" : "margin-auto"
+  },{
+    "name": "padding-[direction]-spacing | [direction]: top,right,bottom,left",
+    "enabled": false,
+    "id": "CSS_padding_direction_1000",
+    "parentId": "CSS_PADDING_1000"
+  },{
+    "name": "padding-direction-[spacing] | [spacing]: none: 0px,sm: 8px,md: 16px,lg: 32px",
+    "enabled": false,
+    "id": "CSS_padding_spacing_1000",
+    "parentId": "CSS_PADDING_1000"
+  }, {
+    "name": "padding-none | No padding",
+    "id": "CSS_padding-none_1000",
+    "parentId": "CSS_PADDING_1000",
+    "class" : "padding-none"
+  }, {
+    "name": "padding-sm | 8px padding",
+    "id": "CSS_padding-sm_1000",
+    "parentId": "CSS_PADDING_1000",
+    "class" : "padding-sm"
+  }, {
+    "name": "padding-md | 16px padding",
+    "id": "CSS_padding-md_1000",
+    "parentId": "CSS_PADDING_1000",
+    "class" : "padding-md"
+  }, {
+    "name": "padding-lg | 32px padding",
+    "id": "CSS_padding-lg_1000",
+    "parentId": "CSS_PADDING_1000",
+    "class" : "padding-lg"
+  }, {
+    "name": "padding-auto | aligns content into the center",
+    "id": "CSS_padding-auto_1000",
+    "parentId": "CSS_PADDING_1000",
+    "class" : "padding-auto"
+  },{
+    "name": "w[amount] | 10-800px, width, in 10px increments.",
+    "enabled": false,
+    "id": "CSS_wamount_1000",
+    "parentId": "CSS_WIDTH_1000"
+  },{
+    "name": "w[percentage]p | 5-95%, percentages, in 5% increments",
+    "enabled": false,
+    "id": "CSS_wpercentagep_1000",
+    "parentId": "CSS_WIDTH_1000"
+  },{
+    "name": "mnw[amount] | 10-800px, min-width, in 10px increments.",
+    "enabled": false,
+    "id": "CSS_mnwamount_1000",
+    "parentId": "CSS_WIDTH_1000"
+  },{
+    "name": "mxw[amount] | 10-800px, max-width, in 10px increments.",
+    "enabled": false,
+    "id": "CSS_mxwamount_1000",
+    "parentId": "CSS_WIDTH_1000"
+  }, {
+    "name": "w95p | 95% wide",
+    "id": "CSS_w95p_1000",
+    "parentId": "CSS_WIDTH_1000",
+    "class" : "w95p"
+  }, {
+    "name": "mxw800 | max-width of 800px",
+    "id": "CSS_mxw800_1000",
+    "parentId": "CSS_WIDTH_1000",
+    "class" : "mxw800"
+  }, {
+    "name": "mnw800 | min-width of 800px",
+    "id": "CSS_mnw800_1000",
+    "parentId": "CSS_WIDTH_1000",
+    "class" : "mnw800"
+  }, {
+    "name": "w150 | width of 150px",
+    "id": "CSS_w150_1000",
+    "parentId": "CSS_WIDTH_1000",
+    "class" : "w150"
+  },{
+    "name": "h[amount] | 10-800px, height , in 10px increments.",
+    "enabled": false,
+    "id": "CSS_hamount_1000",
+    "parentId": "CSS_HEIGHT_1000"
+  },{
+    "name": "mxh[amount] | 10-800px, max-height, in 10px increments.",
+    "enabled": false,
+    "id": "CSS_mxhamount_1000",
+    "parentId": "CSS_HEIGHT_1000"
+  },{
+    "name": "h400 | height of 400px",
+    "id": "CSS_h400_1000",
+    "parentId": "CSS_HEIGHT_1000",
+    "class" : "h400"
+  }, {
+    "name": "mxh800 | max-height of 800px",
+    "id": "CSS_mxh800_1000",
+    "parentId": "CSS_HEIGHT_1000",
+    "class" : "mxh800"
+  },{
+    "name": "u-textStart | Align text to the start of the container",
+    "id": "CSS_textStart_1000",
+    "parentId": "CSS_TEXT_ALIGN_1000",
+    "class" : "u-textStart"
+  }, {
+    "name": "u-textCenter | Align text to the center of the container",
+    "id": "CSS_textCenter_1000",
+    "parentId": "CSS_TEXT_ALIGN_1000",
+    "class" : "u-textCenter"
+  }, {
+    "name": "u-textEnd | Align text to the center of the container",
+    "id": "CSS_textEnd_1000",
+    "parentId": "CSS_TEXT_ALIGN_1000",
+    "class" : "u-textEnd"
+  },{
+    "name": "u-textUpper | SETS THE TEXT TO USE ALL UPPERCASE",
+    "id": "CSS_textUpper_1000",
+    "parentId": "CSS_TEXT_TRANSFORM_1000",
+    "class" : "u-textUpper"
+  },{
+    "name": "u-textLower | sets the text to use all lowercase",
+    "id": "CSS_textLower_1000",
+    "parentId": "CSS_TEXT_TRANSFORM_1000",
+    "class" : "u-textLower"
+  },{
+    "name": "u-textInitCap | Sets The First Letter In Each Word To Use Uppercase",
+    "id": "CSS_u_textEnd_1000",
+    "parentId": "CSS_TEXT_TRANSFORM_1000",
+    "class" : "u-textInitCap"
+  },{
+    "name": "u-bold | Bolds text",
+    "id": "CSS_u_bold_1000",
+    "parentId": "CSS_TEXT_STYLE_1000",
+    "class" : "u-bold"
+  },{
+    "name": "u-italics | Italicize text",
+    "id": "CSS_u_italics_1000",
+    "parentId": "CSS_TEXT_STYLE_1000",
+    "class" : "u-italics"
+  },{
+    "name": "u-underline | Underlines text",
+    "id": "CSS_u_underline_1000",
+    "parentId": "CSS_TEXT_STYLE_1000",
+    "class" : "u-underline"
+  },{
+    "name": "u-fixedFont | Use a fixed-letter-space font",
+    "id": "CSS_u_fixedFont_1000",
+    "parentId": "CSS_TEXT_STYLE_1000",
+    "class" : "u-fixedFont"
+  }]
+}
+
+

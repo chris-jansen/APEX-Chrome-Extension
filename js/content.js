@@ -157,7 +157,7 @@ function insertAtCursor(myField, myValue) {
     }
 }
 
-function sendAPEXItemsContextMenuArray() {
+        function sendAPEXItemsContextMenuArray() {
     var APEXBinds = ["^APEXBINDS^", "APEX$ROW_NUM", "APEX$ROW_SELECTOR", "APEX$ROW_STATUS", "APP_ID", "APP_ALIAS", "APP_AJAX_X01", "APP_AJAX_X02", "APP_AJAX_X03", "APP_AJAX_X04", "APP_AJAX_X05", "APP_AJAX_X06", "APP_AJAX_X07", "APP_AJAX_X08", "APP_AJAX_X09", "APP_AJAX_X10", "APP_BUILDER_SESSION", "APP_DATE_TIME_FORMAT", "APP_IMAGES", "APP_NLS_DATE_FORMAT", "APP_NLS_TIMESTAMP_FORMAT", "APP_NLS_TIMESTAMP_TZ_FORMAT", "APP_PAGE_ALIAS", "APP_PAGE_ID", "APP_REQUEST_DATA_HASH", "APP_SESSION", "APP_SESSION_VISIBLE", "APP_TITLE", "APP_UNIQUE_PAGE_ID", "APP_USER", "AUTHENTICATED_URL_PREFIX", "BROWSER_LANGUAGE", "CURRENT_PARENT_TAB_TEXT", "DEBUG", "HOME_LINK", "IMAGE_PREFIX", "JET_BASE_DIRECTORY", "JET_CSS_DIRECTORY", "JET_JS_DIRECTORY", "LOGIN_URL", "LOGOUT_URL", "APP_TEXT$Message_Name", "APP_TEXT$Message_Name$Lang", "PRINTER_FRIENDLY", "PROXY_SERVER", "PUBLIC_URL_PREFIX", "REQUEST", "SCHEMA OWNER", "SQLERRM", "SYSDATE_YYYYMMDD", "THEME_DB_IMAGES", "THEME_IMAGES", "WORKSPACE_IMAGES", "WORKSPACE_ID"];
     
     var RegionLabel = false;
@@ -216,3 +216,32 @@ document.addEventListener("mousedown", function (event) {
 /*******************************************************************/
 /************ -----==== End APEX Items ====----- *******************/
 /*******************************************************************/
+
+var S4SAddBeautifyJSScript = document.createElement('script');
+S4SAddBeautifyJSScript.src = chrome.extension.getURL('js/beautify.js');
+(document.head || document.documentElement).appendChild(S4SAddBeautifyJSScript);
+
+var S4SAddBeautifyCSSScript = document.createElement('script');
+S4SAddBeautifyCSSScript.src = chrome.extension.getURL('js/beautify-css.js');
+(document.head || document.documentElement).appendChild(S4SAddBeautifyCSSScript);
+
+var S4SAddBeautifyHTMLScript = document.createElement('script');
+S4SAddBeautifyHTMLScript.src = chrome.extension.getURL('js/beautify-html.js');
+(document.head || document.documentElement).appendChild(S4SAddBeautifyHTMLScript);
+
+var S4SAddJSHintScript = document.createElement('script');
+S4SAddJSHintScript.src = chrome.extension.getURL('js/jshint.js');
+(document.head || document.documentElement).appendChild(S4SAddJSHintScript);
+
+var S4SAddCSSlintScript = document.createElement('script');
+S4SAddCSSlintScript.src = chrome.extension.getURL('js/csslint.js');
+(document.head || document.documentElement).appendChild(S4SAddCSSlintScript);
+
+var S4SAddScript = document.createElement('script');
+S4SAddScript.src = chrome.extension.getURL('js/Jq-content.js');
+(document.head || document.documentElement).appendChild(S4SAddScript);
+
+
+
+
+

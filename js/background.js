@@ -89,7 +89,7 @@ function BeautifyJS(info, tab) {
     });
 }
 /***************************************************************/
-/************** -----==== Start Links ====----- ****************/
+/************** -----==== Start Shortcuts ====----- ****************/
 /***************************************************************/
 function addShortcutsInMenu() {
     chrome.contextMenus.create({
@@ -111,6 +111,13 @@ function addShortcutsInMenu() {
             });
         }
     });
+
+    chrome.contextMenus.create({
+        title: "CSS Helpers",
+        id: "CSS_HELPER_1000",
+        contexts: ["editable"]
+    });
+
     addShortcuts();
 }
 
@@ -124,7 +131,7 @@ function addShortcuts() {
         }
     };
     if (Object.keys(Obj).length == 0) {
-        xmlhttp.open("GET", "js/Links.json", true);
+        xmlhttp.open("GET", "js/object.json", true);
         xmlhttp.send();
     } else {
         addShortcutsObj(Obj);
@@ -149,18 +156,18 @@ function addShortcutsObj(Obj) {
       Obj.css_helpers.forEach(function(key) {
         chrome.contextMenus.create({
             title: key.name,
-            id: "101",
+            id: key.id,
+            enabled: key.enabled,
             parentId: key.parentId,
             contexts: ['editable'],
             onclick: function (obj) {
-                insertMenuItemText(key.name)
+                insertMenuItemText(key.class)
             }
         });
       });
-
 }
 /***************************************************************/
-/************** -----==== End Links ====----- ******************/
+/************** -----==== End Shortcuts ====----- ******************/
 /***************************************************************/
 
 /***************************************************************/
@@ -225,11 +232,6 @@ function APEXItemsContextMenu(pMenuItems) {
                 "title": "Beautify JS",
                 "contexts": ["selection"],
                 "onclick": BeautifyJS
-            });
-            chrome.contextMenus.create({
-                "title": "CSS Helpers",
-                "id": "CSS_HELPER_1000",
-                "contexts": ['editable']
             });
             addShortcutsInMenu();
             for (var itemsArray = 0; itemsArray < pMenuItems.length; itemsArray++) {
