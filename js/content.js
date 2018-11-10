@@ -217,28 +217,37 @@ document.addEventListener("mousedown", function (event) {
 /************ -----==== End APEX Items ====----- *******************/
 /*******************************************************************/
 
+/**
+ * Add script(s) to the DOM in <script> tags.
+ * https://jonoshields.com/2017/02/01/making-a-chrome-extension
+ **/
+
 var S4SAddBeautifyJSScript = document.createElement('script');
-S4SAddBeautifyJSScript.src = chrome.extension.getURL('js/beautify.js');
+S4SAddBeautifyJSScript.src = chrome.extension.getURL('js/codemirror-addons/beautify.js');
 (document.head || document.documentElement).appendChild(S4SAddBeautifyJSScript);
 
 var S4SAddBeautifyCSSScript = document.createElement('script');
-S4SAddBeautifyCSSScript.src = chrome.extension.getURL('js/beautify-css.js');
+S4SAddBeautifyCSSScript.src = chrome.extension.getURL('js/codemirror-addons/beautify-css.js');
 (document.head || document.documentElement).appendChild(S4SAddBeautifyCSSScript);
 
 var S4SAddBeautifyHTMLScript = document.createElement('script');
-S4SAddBeautifyHTMLScript.src = chrome.extension.getURL('js/beautify-html.js');
+S4SAddBeautifyHTMLScript.src = chrome.extension.getURL('js/codemirror-addons/beautify-html.js');
 (document.head || document.documentElement).appendChild(S4SAddBeautifyHTMLScript);
 
 var S4SAddJSHintScript = document.createElement('script');
-S4SAddJSHintScript.src = chrome.extension.getURL('js/jshint.js');
+S4SAddJSHintScript.src = chrome.extension.getURL('js/codemirror-addons/jshint.js');
 (document.head || document.documentElement).appendChild(S4SAddJSHintScript);
 
 var S4SAddCSSlintScript = document.createElement('script');
-S4SAddCSSlintScript.src = chrome.extension.getURL('js/csslint.js');
+S4SAddCSSlintScript.src = chrome.extension.getURL('js/codemirror-addons/csslint.js');
 (document.head || document.documentElement).appendChild(S4SAddCSSlintScript);
 
+var S4SAddHTMLhintScript = document.createElement('script');
+S4SAddHTMLhintScript.src = chrome.extension.getURL('js/codemirror-addons/htmlhint.js');
+(document.head || document.documentElement).appendChild(S4SAddHTMLhintScript);
+
 var S4SAddScript = document.createElement('script');
-S4SAddScript.src = chrome.extension.getURL('js/Jq-content.js');
+S4SAddScript.src = chrome.extension.getURL('js/codemirror-addons/init-addons.js');
 (document.head || document.documentElement).appendChild(S4SAddScript);
 
 
