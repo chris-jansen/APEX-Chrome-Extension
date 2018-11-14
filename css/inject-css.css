@@ -1,0 +1,8 @@
+.S4SAP-menu-item{
+    color: #404040;
+    
+}
+.S4SAP-menu-item:hover{
+    background: #0572CE;
+    color: #ffffff !important;
+}

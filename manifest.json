@@ -64,9 +64,9 @@
          "all_frames":false,
          "js":[          
             "js/jquery.min.js",
-            "js/codemirror-addons/beautify.js",
+            "js/codemirror-addons/beautify.min.js",
             "js/content.js",
-            "js/sql-formatter.min.js"
+            "js/codemirror-addons/sql-formatter.min.js"
          ],
          "matches":[
           "*://*/*f?p=*",
@@ -75,13 +75,15 @@
          "run_at":"document_end"
       }
    ],
-   "web_accessible_resources": [
-    "js/codemirror-addons/beautify.js",
-    "js/codemirror-addons/beautify-css.js",
-    "js/codemirror-addons/beautify-html.js",
-    "js/codemirror-addons/jshint.js",
-    "js/codemirror-addons/csslint.js",
-    "js/codemirror-addons/htmlhint.js",
+   "web_accessible_resources": [    
+    "css/inject-css.css",
+    "js/codemirror-addons/beautify.min.js",
+    "js/codemirror-addons/beautify-css.min.js",
+    "js/codemirror-addons/beautify-html.min.js",
+    "js/codemirror-addons/jshint.min.js",
+    "js/codemirror-addons/csslint.min.js",
+    "js/codemirror-addons/htmlhint.min.js",
+    "js/codemirror-addons/sql-formatter.min.js",
     "js/codemirror-addons/init-addons.js"
    ]
 }
