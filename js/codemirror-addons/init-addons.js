@@ -33,7 +33,7 @@ $("body")
                     if (typeCode === "javascript" || typeCode === "css" || typeCode == "htmlmixed" || typeTextField === "text/text") {
                         codeMirrorToolBar.find("button#editorDlg-codeEditor_autocomplete").after('<button id="editorDlg-codeEditor_validate" title="Validate - Ctrl+Alt+V" aria-label="Validate - Ctrl+Alt+V" class="a-Button a-Button--noLabel a-Button--withIcon" type="button"><span class="a-Icon icon-cm-validate" aria-hidden="true"></span></button>');
                     }
-                    codeMirrorToolBar.find("button#editorDlg-codeEditor_validate").after('<button id="editorDlg-codeEditor_beautify" title="Beautify Code - Ctrl+Alt+B" aria-label="Beautify Code - Ctrl+Alt+B" class="a-Button a-Button--noLabel a-Button--withIcon" type="button"><span class="a-Icon icon-sc-ui" aria-hidden="true"></span></button>');
+                    codeMirrorToolBar.find("button#editorDlg-codeEditor_validate").after('<button id="editorDlg-codeEditor_beautify" title="Beautify Code - Ctrl+Alt+B" aria-label="Beautify Code - Ctrl+Alt+B" class="a-Button a-Button--noLabel a-Button--withIcon" type="button"><span class="a-Icon fa fa-paint-brush" aria-hidden="true"></span></button>');
                     if (typeCode === "sql") {
                         let Button = $("button#editorDlg-codeEditor_validate").attr("title");
                         Button = Button + " - Ctrl+Alt+V";
